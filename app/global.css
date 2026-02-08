@@ -1,0 +1,96 @@
+/* --- Estilos para a aba de Pagamentos --- */
+.summaryGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.summaryCard {
+  padding: 16px;
+  border-radius: 18px;
+  border: 1px solid rgba(148,163,184,.18);
+  background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+.summaryTitle {
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+.summaryValue {
+  font-size: 24px;
+  font-weight: 950;
+  color: var(--sky2);
+}
+
+.dailySummaryTable, .pagamentosTable {
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(148,163,184,.16);
+  background: rgba(6,10,18,.28);
+  margin-bottom: 20px;
+}
+
+.dailySummaryHeader, .pagamentosTableHeader {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Ajuste conforme o número de colunas */
+  background: rgba(255,255,255,.04);
+  padding: 10px 12px;
+  font-weight: 900;
+  font-size: 12px;
+  color: rgba(124,196,255,.92);
+  border-bottom: 1px solid rgba(148,163,184,.12);
+}
+
+.pagamentosTableHeader {
+  grid-template-columns: repeat(8, 1fr); /* 8 colunas para detalhes de pagamentos */
+}
+
+.dailySummaryRow, .pagamentosTableRow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Ajuste conforme o número de colunas */
+  padding: 8px 12px;
+  font-size: 12px;
+  border-bottom: 1px dashed rgba(148,163,184,.1);
+}
+
+.pagamentosTableRow {
+  grid-template-columns: repeat(8, 1fr); /* 8 colunas para detalhes de pagamentos */
+}
+
+.dailySummaryRow:nth-child(even), .pagamentosTableRow:nth-child(even) {
+  background: rgba(255,255,255,.02);
+}
+
+.dailySummaryRow:last-child, .pagamentosTableRow:last-child {
+  border-bottom: none;
+}
+
+/* Responsividade para tabelas */
+@media (max-width: 768px) {
+  .dailySummaryHeader, .dailySummaryRow {
+    grid-template-columns: repeat(2, 1fr); /* 2 colunas em telas menores */
+  }
+  .pagamentosTableHeader, .pagamentosTableRow {
+    grid-template-columns: repeat(4, 1fr); /* 4 colunas em telas menores */
+  }
+  .pagamentosTableHeader div:nth-child(5), .pagamentosTableRow div:nth-child(5), /* Portador */
+  .pagamentosTableHeader div:nth-child(6), .pagamentosTableRow div:nth-child(6), /* SCM */
+  .pagamentosTableHeader div:nth-child(7), .pagamentosTableRow div:nth-child(7), /* SCI */
+  .pagamentosTableHeader div:nth-child(8), .pagamentosTableRow div:nth-child(8) { /* SVA */
+    display: none; /* Oculta algumas colunas para economizar espaço */
+  }
+}
+
+@media (max-width: 480px) {
+  .pagamentosTableHeader, .pagamentosTableRow {
+    grid-template-columns: repeat(2, 1fr); /* 2 colunas em telas muito pequenas */
+  }
+  .pagamentosTableHeader div:nth-child(3), .pagamentosTableRow div:nth-child(3) { /* Plano */
+    display: none; /* Oculta mais colunas */
+  }
+}
